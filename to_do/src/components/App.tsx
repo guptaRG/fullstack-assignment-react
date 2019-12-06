@@ -4,9 +4,19 @@ import { RootState, AppProps } from '../types';
 import Header from './Header';
 import Routing from './Routing';
 import { connect } from 'react-redux';
-import alertActions from '../actions/alert'
+import alertActions from '../actions/alert';
+import { history } from '../_helpers/history';
 
 class App extends React.Component<AppProps> {
+
+  constructor(props:AppProps) {
+    super(props)
+
+    history.listen((location, action) => {
+      // clear alert on location change
+      this.props.clearAlerts();
+    });
+  }
 
   render() {
     const { alert } = this.props
