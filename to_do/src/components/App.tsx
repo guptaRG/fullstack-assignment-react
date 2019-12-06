@@ -1,6 +1,6 @@
 import React from 'react';
 import './css/App.css';
-import { Theme, RootState, AppProps } from '../types';
+import { RootState, AppProps } from '../types';
 import Header from './Header';
 import Routing from './Routing';
 import { connect } from 'react-redux';
@@ -14,7 +14,7 @@ class App extends React.Component<AppProps> {
       <div>
         <Header theme={this.props.theme}/>
         <div className="container">
-          <div className="col-sm col-sm-offset-2">
+          <div className="col-sm col-sm-offset-2 text-sm-center">
             {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
           </div>
         </div>
