@@ -15,7 +15,8 @@ const login = async (username: string, password: string): Promise<User> => {
         localStorage.setItem('user', JSON.stringify(userDetails))
         return userDetails
     } catch (e) {
-        return Promise.reject(e.response.data.message)
+        let errorMsg = e.response.data.message ? e.response.data.message : e.response.data.non_field_errors[0]
+        return Promise.reject(errorMsg)
     }
 }
 
