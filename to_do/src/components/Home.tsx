@@ -26,8 +26,18 @@ class Home extends React.Component<HomeProps, HomeState> {
     render() {
         return (
             <Row id="home-body">
-                <ClickableCard toggleCard={this.toggleToDo} title="ToDos" theme={this.props.theme} />
-                <ClickableCard title="Buckets" toggleCard={this.toggleBucket} theme={this.props.theme} />
+                <ClickableCard
+                    toggleCard={this.toggleToDo}
+                    title="ToDos"
+                    theme={this.props.theme}
+                    open={this.state.toDoOpen}
+                />
+                <ClickableCard
+                    title="Buckets"
+                    toggleCard={this.toggleBucket}
+                    theme={this.props.theme}
+                    open={this.state.bucketOpen}
+                />
             </Row>
         )
     }

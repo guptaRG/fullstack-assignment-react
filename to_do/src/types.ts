@@ -101,5 +101,6 @@ export type HomeState = {
 export type ClickableCardProps = {
     theme: Theme,
     title: String,
-    toggleCard: () => void
+    toggleCard: () => void,
+    open: boolean
 }
