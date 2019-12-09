@@ -88,3 +88,18 @@ export type AppProps = {
     clearAlerts: Function,
     alert: Alert
 }
+
+export type HomeProps = {
+    theme: Theme,
+}
+
+export type HomeState = {
+    toDoOpen: boolean,
+    bucketOpen: boolean
+}
+
+export type ClickableCardProps = {
+    theme: Theme,
+    title: String,
+    toggleCard: () => void
+}

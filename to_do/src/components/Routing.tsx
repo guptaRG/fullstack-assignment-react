@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Login } from './Login';
 import { Theme } from '../types';
+import Home from './Home';
 
 class Routing extends Component<{theme: Theme}> {
   render() {
@@ -9,7 +10,7 @@ class Routing extends Component<{theme: Theme}> {
       <Router>
         <Switch>
           <Route exact path="/" render={() => <Login theme={this.props.theme} />} />
-          {/* <Route path="/home" component={Home} /> */}
+          <Route path="/home" render={() => <Home theme={this.props.theme} />} />
         </Switch>
       </Router>
     );
