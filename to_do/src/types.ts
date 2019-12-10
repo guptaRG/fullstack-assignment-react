@@ -1,3 +1,7 @@
+import User from "./models/user"
+import { Dispatch } from "redux"
+import { ToDo } from "./models/to_do"
+
 export interface Theme {
     button: {
         variant: 
@@ -25,6 +29,10 @@ export interface Theme {
     }
 }
 
+export interface ActionDispatch {
+    (dispatch:Dispatch): void
+}
+
 export interface RequestHeader {
     'Content-type'?: string,
     'Authorization'?: string,
@@ -33,21 +41,23 @@ export interface RequestHeader {
 
 export type AuthenticationAction = {
     type: string,
-    user?: User
+    user?: User,
+    error?: string
+}
+
+export interface ToDoState {
+    toDos: Array<ToDo>
+}
+
+export type ToDoAction = {
+    type: string,
+    error?: string,
+    toDos: Array<ToDo>
 }
 
 export type AlertAction = {
     message?: string,
     type: string
-}
-
-export type User = {
-    id: Number,
-    token: string,
-    first_name?: string,
-    last_name?: string,
-    username?: string,
-    email?: string
 }
 
 export interface AuthenticationState {
@@ -67,7 +77,8 @@ export interface Alert {
  */
 export interface RootState {
     authentication: AuthenticationState,
-    alert: Alert
+    alert: Alert,
+    toDoReducer: ToDoState
 }
 
 export type LoginProps = {
@@ -91,6 +102,8 @@ export type AppProps = {
 
 export type HomeProps = {
     theme: Theme,
+    toDos: Array<ToDo>,
+    getToDos: Function
 }
 
 export type HomeState = {
@@ -102,5 +115,23 @@ export type ClickableCardProps = {
     theme: Theme,
     title: String,
     toggleCard: () => void,
-    open: boolean
+    open: boolean,
+    items: Array<any>
 }
+
+export type HTTP_METHOD =
+    "get" |
+    "GET" |
+    "delete" |
+    "DELETE" |
+    "head" |
+    "HEAD" |
+    "options" |
+    "OPTIONS" |
+    "post" |
+    "POST" |
+    "put" |
+    "PUT" |
+    "patch" |
+    "PATCH" |
+    undefined

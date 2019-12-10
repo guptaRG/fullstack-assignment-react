@@ -12,7 +12,13 @@ class ClickableCard extends React.Component<ClickableCardProps> {
                 <Card.Title>{this.props.title}</Card.Title>
                 <Collapse in={this.props.open}>
                 <Card.Text id="card-items">
-                    
+                    <ul>
+                        {this.props.items.map(item => (
+                            <li>
+                                { item.title }
+                            </li>
+                        ))}
+                    </ul>
                 </Card.Text>
                 </Collapse>
                 </Card.Body>

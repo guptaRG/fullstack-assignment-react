@@ -1,11 +1,11 @@
 import { getRequestOptions } from "./requestOptions";
 import {API} from '../config';
 import {API_URLS} from '../constants';
-import { User } from "../types";
 import { AxiosResponse } from "axios";
+import User from "../models/user";
 
 const login = async (username: string, password: string): Promise<User> => {
-    const requestOptions = await getRequestOptions('POST', undefined, )
+    const requestOptions = await getRequestOptions('POST')
     const userBody = JSON.stringify({username, password})
     try {
         let loginResponse = API.post(API_URLS.USER_LOGIN, userBody, requestOptions)

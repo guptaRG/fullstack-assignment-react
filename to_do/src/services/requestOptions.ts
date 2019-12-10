@@ -1,16 +1,21 @@
 import { AxiosRequestConfig } from "axios"
+import { HTTP_METHOD } from "../types"
 
-export const getRequestOptions = async (method: "get" | "GET" | "delete" | "DELETE" | "head" | "HEAD" | "options" | "OPTIONS" | "post" | "POST" | "put" | "PUT" | "patch" | "PATCH" | undefined, authToken?: string) => {
+export const getRequestOptions = async (method: HTTP_METHOD) => {
     let requestOptions:AxiosRequestConfig  = {
         method: method,
         headers: {}
     }
-    if (authToken) {
-        requestOptions.headers = {
-            Authorization: `token ${authToken}`
+    const user = localStorage.getItem('user')
+    if (user) {
+        const authToken:String = JSON.parse(user).token
+        if (authToken) {
+            requestOptions.headers = {
+                Authorization: `token ${authToken}`,
+            }
         }
     }
-
+    
     if (method === 'POST' || method === 'PUT' || method === 'PATCH') {
         Object.assign(requestOptions.headers, {
             Accept: 'application/json',

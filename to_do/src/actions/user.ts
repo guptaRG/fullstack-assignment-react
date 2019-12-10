@@ -1,14 +1,10 @@
 import userService from '../services/user';
-import {User} from '../types';
 import { USER_CONSTANTS } from '../constants';
-import { Dispatch } from 'redux';
 import alertActions from './alert';
+import User from '../models/user';
+import { ActionDispatch } from '../types';
 
-interface LoginDispatch {
-    (dispatch:Dispatch): void
-}
-
-const login = (username:string, password:string):LoginDispatch => {
+const login = (username:string, password:string):ActionDispatch => {
     const success = (user:User) => { return { type: USER_CONSTANTS.LOGIN_SUCCESS, user } }
     const request = (user:{username:String}) => { return { type: USER_CONSTANTS.LOGIN_REQUEST, user } }
     const failure = (error:String) => { return { type: USER_CONSTANTS.LOGIN_FAILURE, error } }
