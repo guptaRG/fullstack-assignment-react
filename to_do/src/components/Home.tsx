@@ -26,7 +26,7 @@ class Home extends React.Component<HomeProps, HomeState> {
 
     componentDidMount = () => {
         this.props.getToDos();
-        this.props.getBuckets();
+        // this.props.getBuckets();
     }
 
     render() {

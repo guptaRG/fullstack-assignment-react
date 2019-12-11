@@ -1,4 +1,4 @@
-export type ToDo = {
+export default interface ToDo {
     id: number,
     done: boolean,
     description: String,

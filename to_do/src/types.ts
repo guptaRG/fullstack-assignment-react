@@ -1,6 +1,7 @@
 import User from "./models/user"
 import { Dispatch } from "redux"
-import { ToDo } from "./models/to_do"
+import ToDo from "./models/to_do"
+import Bucket from "./models/bucket"
 
 export interface Theme {
     button: {
@@ -29,6 +30,10 @@ export interface Theme {
     }
 }
 
+export interface BucketState {
+    buckets: Array<Bucket>
+}
+
 export interface ActionDispatch {
     (dispatch:Dispatch): void
 }
@@ -39,25 +44,8 @@ export interface RequestHeader {
     'Accept'?: string
 }
 
-export type AuthenticationAction = {
-    type: string,
-    user?: User,
-    error?: string
-}
-
 export interface ToDoState {
     toDos: Array<ToDo>
-}
-
-export type ToDoAction = {
-    type: string,
-    error?: string,
-    toDos: Array<ToDo>
-}
-
-export type AlertAction = {
-    message?: string,
-    type: string
 }
 
 export interface AuthenticationState {
@@ -79,6 +67,29 @@ export interface RootState {
     authentication: AuthenticationState,
     alert: Alert,
     toDoReducer: ToDoState
+}
+
+export type AuthenticationAction = {
+    type: string,
+    user?: User,
+    error?: string
+}
+
+export type ToDoAction = {
+    type: string,
+    error?: string,
+    toDos: Array<ToDo>
+}
+
+export type BucketAction = {
+    type: string,
+    error?: string,
+    buckets: Array<Bucket>
+}
+
+export type AlertAction = {
+    message?: string,
+    type: string
 }
 
 export type LoginProps = {

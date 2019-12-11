@@ -6,7 +6,8 @@ export const API_URLS = {
     USER_TOKEN: 'user/token/',
     USER_SIGNUP: 'user/signup/',
     TO_DO_LIST: 'to-do/',
-    TO_DO_CREATE: 'to-do'
+    TO_DO_CREATE: 'to-do/',
+    BUCKET_LIST: 'bucket/'
 }
 
 export const USER_CONSTANTS = {
@@ -28,4 +29,10 @@ export const TO_DO_CONSTANTS = {
     LIST_SUCCESS: 'LIST_TO_DOS_SUCCESS',
     LIST_FAILURE: 'LIST_TO_DOS_FAILURE'
     
+}
+
+export const BUCKET_CONSTANTS = {
+    LIST_REQUEST: 'LIST_BUCKETS_REQUEST',
+    LIST_SUCCESS: 'LIST_BUCKETS_SUCCESS',
+    LIST_FAILURE: 'LIST_BUCKETS_FAILURE'
 }

@@ -2,7 +2,7 @@ import { getRequestOptions } from "./requestOptions";
 import { API } from "../config";
 import { API_URLS } from "../constants";
 import Bucket from "../models/bucket";
-import { ToDo } from "../models/to_do";
+import ToDo from "../models/to_do";
 
 interface ToDoResponse {
     id: number,
