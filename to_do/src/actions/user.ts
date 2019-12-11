@@ -3,6 +3,7 @@ import { USER_CONSTANTS } from '../constants';
 import alertActions from './alert';
 import User from '../models/user';
 import { ActionDispatch } from '../types';
+import { history } from "../_helpers/history";
 
 const login = (username:string, password:string):ActionDispatch => {
     const success = (user:User) => { return { type: USER_CONSTANTS.LOGIN_SUCCESS, user } }
@@ -15,7 +16,7 @@ const login = (username:string, password:string):ActionDispatch => {
         userService.login(username, password).then(
             user => { 
                 dispatch(success(user));
-                // history.push('/');
+                history.push('/home');
             },
             error => {
                 dispatch(failure(error));
