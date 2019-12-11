@@ -15,7 +15,7 @@ class ClickableCard extends React.Component<ClickableCardProps> {
                     <ul>
                         {this.props.items.map(item => (
                             <li>
-                                { item.title }
+                                { item.description }
                             </li>
                         ))}
                     </ul>

@@ -1,5 +1,5 @@
 export const TITLE:string = "Fractal Analytics Fullstack Assignment";
-export const BASE_URL:string = "http://localhost:1337/api"
+export const BASE_URL:string = "http://localhost:8000/api"
 
 export const API_URLS = {
     USER_LOGIN: 'user/login/',

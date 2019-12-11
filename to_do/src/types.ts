@@ -66,6 +66,7 @@ export interface Alert {
 export interface RootState {
     authentication: AuthenticationState,
     alert: Alert,
+    bucketReducer: BucketState,
     toDoReducer: ToDoState
 }
 
@@ -114,7 +115,9 @@ export type AppProps = {
 export type HomeProps = {
     theme: Theme,
     toDos: Array<ToDo>,
-    getToDos: Function
+    getToDos: Function,
+    buckets: Array<Bucket>,
+    getBuckets: Function
 }
 
 export type HomeState = {

@@ -5,6 +5,7 @@ import './css/Home.css';
 import ClickableCard from "./ClickableCard";
 import { connect } from "react-redux";
 import toDoActions from "../actions/to_do";
+import bucketActions from "../actions/bucket";
 
 class Home extends React.Component<HomeProps, HomeState> {
 
@@ -26,7 +27,7 @@ class Home extends React.Component<HomeProps, HomeState> {
 
     componentDidMount = () => {
         this.props.getToDos();
-        // this.props.getBuckets();
+        this.props.getBuckets();
     }
 
     render() {
@@ -44,7 +45,7 @@ class Home extends React.Component<HomeProps, HomeState> {
                     toggleCard={this.toggleBucket}
                     theme={this.props.theme}
                     open={this.state.bucketOpen}
-                    items={this.props.toDos}
+                    items={this.props.buckets}
                 />
             </Row>
         )
@@ -52,12 +53,14 @@ class Home extends React.Component<HomeProps, HomeState> {
 }
 
 const actionCreators = {
-    getToDos: toDoActions.getAll
+    getToDos: toDoActions.getAll,
+    getBuckets: bucketActions.getAll
 }
 
 const mapState = (state:RootState) => {
     const { toDos } = state.toDoReducer
-    return { toDos }
+    const { buckets } = state.bucketReducer
+    return { toDos, buckets }
 }
 
 const connectedHomePage = connect(mapState, actionCreators)(Home);
