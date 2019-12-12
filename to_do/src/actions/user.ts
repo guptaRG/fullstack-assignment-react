@@ -25,15 +25,36 @@ const login = (username:string, password:string):ActionDispatch => {
             }
         )
     }
-};
+}
 
 function logout() {
     userService.logout();
     return { type: USER_CONSTANTS.LOGOUT };
 }
 
+const signup = (firstName: string, lastName: string, username: string, email: string, password: string):ActionDispatch => {
+    const success = () => { return { type: USER_CONSTANTS.SIGNUP_SUCCESS } }
+    const request = (user:{username:String}) => { return { type: USER_CONSTANTS.SIGNUP_REQUEST, user } }
+    const failure = (error:String) => { return { type: USER_CONSTANTS.SIGNUP_FAILURE, error } }
+
+    return dispatch => {
+        dispatch(request({ username }));
+
+        userService.signup(firstName, lastName, username, email, password).then(
+            () => { 
+                dispatch(success());
+                history.push(URLS.LOGIN);
+            },
+            error => {
+                dispatch(failure(error));
+                dispatch(alertActions.error(error));
+            }
+        )
+    }
+}
+
 export default {
     login,
     logout,
-    // signup,
+    signup
 };

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Spinner } from "react-bootstrap";
 import { LoginState, RootState, LoginProps } from "../types";
 import "./css/Login.css";
 import userActions from '../actions/user';
@@ -33,6 +33,7 @@ class Login extends Component<LoginProps, LoginState> {
             this.props.login(username, password)
         }
     }
+    
     render() {
         const { username, password, submitted } = this.state;
 
@@ -65,7 +66,17 @@ class Login extends Component<LoginProps, LoginState> {
                 </Form.Control.Feedback>
                 </Form.Group>
                 <Button block {...this.props.theme.button} type="submit">
-                Login
+                {
+                    this.props.loggingIn ?
+                    <Spinner
+                        animation="border"
+                        {...this.props.theme.spinner}
+                        as="span"
+                        role="status"
+                        aria-hidden="true"
+                    /> :
+                    "Login"
+                }
                 </Button>
             </form>
             </div>

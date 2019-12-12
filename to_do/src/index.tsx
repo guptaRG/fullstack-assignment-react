@@ -16,6 +16,9 @@ const theme:Theme = {
     },
     header: {
         bg: "light"
+    },
+    spinner: {
+        variant: "dark"
     }
 }
 

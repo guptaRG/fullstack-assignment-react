@@ -25,8 +25,25 @@ function logout() {
     localStorage.removeItem('user');
 }
 
+const signup = async (firstName: string, lastName: string, username: string, email: string, password: string): Promise<void> => {
+    const requestOptions = await getRequestOptions('POST')
+    const requestBody = JSON.stringify({
+        username,
+        password,
+        email,
+        first_name: firstName,
+        last_name: lastName
+    })
+    try {
+        await API.post(API_URLS.USER_SIGNUP, requestBody, requestOptions)
+    } catch (e) {
+        let errorMsg = e.response.data.message || e.response.data.detail || e.response.data.non_field_errors[0]
+        return Promise.reject(errorMsg)
+    }
+}
+
 export default {
     login,
     logout,
-    // signup
+    signup
 };

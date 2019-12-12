@@ -27,6 +27,17 @@ export interface Theme {
     },
     header: {
         bg: string
+    },
+    spinner: {
+        variant: 
+        | 'primary'
+        | 'secondary'
+        | 'success'
+        | 'danger'
+        | 'warning'
+        | 'info'
+        | 'light'
+        | 'dark',
     }
 }
 
@@ -67,12 +78,34 @@ export interface RootState {
     authentication: AuthenticationState,
     alert: Alert,
     bucketReducer: BucketState,
-    toDoReducer: ToDoState
+    toDoReducer: ToDoState,
+    signup: { signingUp?: Boolean}
+}
+
+export type SignupProps = {
+    theme: Theme,
+    signup: Function,
+    signingUp?: Boolean
+}
+
+export type SignupState = {
+    username: string,
+    email: string,
+    password: string,
+    submitted: boolean,
+    firstName: string,
+    lastName: string
 }
 
 export type AuthenticationAction = {
     type: string,
     user?: User,
+    error?: string
+}
+
+export type SignupAction = {
+    type: string,
+    user?: string,
     error?: string
 }
 
@@ -95,7 +128,7 @@ export type AlertAction = {
 
 export type LoginProps = {
     theme: Theme,
-    login:Function,
+    login: Function,
     logout: Function,
     loggingIn?: Boolean
 }
