@@ -7,7 +7,7 @@ class ClickableCard extends React.Component<ClickableCardProps> {
 
     render() {
         return (
-            <Card onClick={() => this.props.toggleCard()} aria-controls="card-items">
+            <Card onClick={() => this.props.toggleCard()} aria-controls="card-items" style={{ cursor: "pointer"}}>
                 <Card.Body>
                 <Card.Title>{this.props.title}</Card.Title>
                 <Collapse in={this.props.open}>
