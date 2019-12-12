@@ -17,7 +17,7 @@ const login = (username:string, password:string):ActionDispatch => {
         userService.login(username, password).then(
             user => { 
                 dispatch(success(user));
-                history.push(URLS.HOME)
+                history.push(URLS.HOME);
             },
             error => {
                 dispatch(failure(error));
