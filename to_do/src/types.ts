@@ -38,6 +38,10 @@ export interface Theme {
         | 'info'
         | 'light'
         | 'dark',
+    },
+    card: {
+        bg: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'light',
+        border: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'light'
     }
 }
 

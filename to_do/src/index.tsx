@@ -19,6 +19,10 @@ const theme:Theme = {
     },
     spinner: {
         variant: "dark"
+    },
+    card: {
+        bg: "light",
+        border: "light"
     }
 }
 
