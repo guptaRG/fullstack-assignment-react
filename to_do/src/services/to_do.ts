@@ -22,7 +22,8 @@ const getAll = async (): Promise<Array<ToDo>> => {
                 description: toDo.description,
                 title: toDo.title,
                 bucketId: toDo.bucket.id,
-                bucketName: toDo.bucket.name
+                bucketName: toDo.bucket.name,
+                done: toDo.done
             }
         })
 

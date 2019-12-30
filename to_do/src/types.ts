@@ -170,6 +170,14 @@ export type ClickableCardProps = {
     items: Array<any>
 }
 
+export type InfoCardProps = {
+    theme: Theme,
+    title: String,
+    subTitle: String | null,
+    text: String,
+    toDo: boolean
+}
+
 export type HTTP_METHOD =
     "get" |
     "GET" |
